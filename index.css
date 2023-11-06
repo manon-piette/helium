@@ -152,7 +152,7 @@ footer{height: 500px;}
 #end{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    width: 80%;
+    width: 60%;
     gap: 40px;
     margin: 0 auto;
     margin-top: 300px;
