@@ -1,5 +1,7 @@
 window.addEventListener("load", function() {
     navbar_load()
+    update()
+    update_size()
 })
 
 window.addEventListener("scroll", update);
@@ -8,36 +10,28 @@ function update_size(){
     console.log(document.querySelector("#home h1").clientHeight/2)
     document.querySelector("#home img").style.transform = `translate(-50%, calc(50% - ${document.querySelector("#home h1").clientHeight}px))`
     document.querySelector("#sep-1").style.height = `${document.querySelector("#home img").clientHeight/2 - document.querySelector("#home h1").clientHeight}px`
+    document.querySelector(".spacer").style.height = `${document.querySelector("#listen img").clientHeight/2}px`
 }
 
 
-sola_img = document.querySelector("#sola img");
-sola_section = document.querySelector("#sola");
+img = document.querySelector("#listen img");
+section = document.querySelector("#listen");
 
 listen_section = document.querySelector("#listen");
 
 
-fixed = false
+
 function update(){
-    update_size()
-    const rect_sola     = sola_section.getBoundingClientRect();
-    const rect_sola_img = sola_img.getBoundingClientRect();
-    const rect_listen   = listen_section.getBoundingClientRect();
+    const parentElement = document.querySelector('#listen');
+    const childElement = document.querySelector('#listen img');
     
-    const dist = Math.max(0,Math.min((rect_listen.bottom - rect_sola_img.bottom)/(rect_listen.bottom - rect_sola.bottom),1));
-    console.log(dist);
-    sola_img.style.opacity = dist;
+    const parentBox = parentElement.getBoundingClientRect();
+    const childBox = childElement.getBoundingClientRect();
 
+    const way = (childBox.top - parentBox.top)/(parentBox.height - childBox.height*(3/2))
+    
+    childElement.style.opacity = 1-way
 
-    const distance_to_middle = rect_sola.top + (rect_sola.height / 2);
-
-    if (distance_to_middle < window.innerHeight/2){
-        sola_img.style.position = "fixed";
-    }
-
-    if (distance_to_middle > window.innerHeight/2){
-        sola_img.style.position = "absolute";
-    }
 }
 
 window.addEventListener('resize', update_size);
