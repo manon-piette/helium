@@ -57,18 +57,17 @@ html,body{
 #zoom {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     height: fit-content;
     width: 80%;
     margin: 0 auto;
-    gap: 40px;
+    column-gap: 30px ;
     margin-top: 400px;
 }
 #zoom h2{
     font-size: 48px;
     font-style: normal;
     font-weight: 700;
-    max-width: 500px;
-    margin-bottom: 120px;
 }
 #zoom p{
     color: #666666;
@@ -79,6 +78,9 @@ html,body{
 }
 #zoom div.img-cont{
     position: relative;
+    grid-row: 1 / span 2;
+    grid-column: 2 / span 2;
+ 
 }
 #zoom img{
     width: 100%;
@@ -145,4 +147,113 @@ footer{height: 500px;}
 
 #end img{
     width: 100%;
+}
+
+
+
+
+
+@media screen and (max-width: 1200px){
+    html,body{
+        /* background-color: rgba(255, 0, 0, 0.3) !important; */
+    }
+    #home img{
+        height: 50vh;
+    }
+    #home h1{
+        font-size: 150px;
+    }
+    #zoom h2{
+        font-size: 30px !important;
+    }
+    #listen h2{
+        font-size: 80px !important;
+    }
+    #listen p{
+        font-size: 30px;
+    }
+    #end {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 800px){
+    html,body{
+        /* background-color: rgba(255, 0, 0, 0.6) !important; */
+    }
+    #zoom{
+        grid-template-columns: 1fr;
+        grid-template-rows: 150px 350px 100px;
+    }
+    #zoom div.img-cont{
+        grid-row: 2;
+        height: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        /* background-color: blue; */
+        grid-column: auto;
+    }
+    #zoom div.img-cont img{
+        height: 100%;
+        display: block;
+        width: auto;
+        margin: 0 auto;
+    }
+    #zoom h2{
+        text-align: center;
+        font-size: 40px !important;
+    }
+    #zoom p{
+        margin-top: 50px;
+    }
+
+    #listen img{
+        height: auto;
+        width: 40%;
+    }
+    #listen p{
+        font-size: 25px;
+    }
+    #listen h2{
+        font-size: 60px !important;
+        margin-bottom: 50px;
+    }
+    #end{
+        gap: 10px;
+    }
+    h1{
+        font-size: 100px !important;
+    }
+    #zoom{
+        margin-top: 200px;
+    }
+    #listen{
+        margin-top: 200px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    html,body{
+        /* background-color: rgba(255, 0, 0, 0.9) !important; */
+    }
+    #zoom h2{
+        font-size: 30px !important;
+        margin-top: auto;
+    }
+    #zoom p{
+        font-size: 14px !important;
+    }
+
+    #listen h2{
+        font-size: 50px !important;
+        margin-bottom: 50px;
+    }
+    #listen p{
+        font-size: 20px;
+    }
+
+    h1{
+        font-size: 70px !important;
+    }
+    
 }
